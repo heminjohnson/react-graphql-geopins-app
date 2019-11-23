@@ -16,6 +16,11 @@ export default function reducer(state, { type, payload }) {
         isAuth: false,
         currentUser: null
       };
+    case "DELETE_DRAFT":
+      return {
+        ...state,
+        draft: null
+      };
     case "CREATE_DRAFT":
       return {
         ...state,
