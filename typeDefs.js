@@ -8,13 +8,14 @@ module.exports = gql`
     picture: String
   }
 
-  type pin {
+  type Pin {
     _id: ID
     title: String
     content: String
     image: String
     latitude: Float
     longitude: Float
+    createdAt: String
     author: User
     comments: [Comment]
   }
@@ -24,8 +25,20 @@ module.exports = gql`
     createdAt: String
     author: User
   }
+  
+  input CreatePinInput {
+      title: String
+      image: String
+      content: String
+      latitude: Float
+      longitude: Float
+  }
 
   type Query {
     me: User
+  }
+  
+  type Mutation {
+      createPin(input: CreatePinInput!): Pin
   }
 `;
