@@ -11,7 +11,7 @@ import SaveIcon from "@material-ui/icons/SaveTwoTone";
 
 import Context from "../../context";
 import { CREATE_PIN_MUTATION } from "../../graphql/mutations";
-import { useClient } from '../../client'
+import { useClient } from "../../client";
 
 const CreatePin = ({ classes }) => {
   const client = useClient();
@@ -56,6 +56,7 @@ const CreatePin = ({ classes }) => {
         variables
       );
       console.log("Pin created", { createPin });
+      dispatch({ type: "CREATE_PIN", payload: createPin });
       handleDeleteDraft();
     } catch (err) {
       setSubmitting(false);
