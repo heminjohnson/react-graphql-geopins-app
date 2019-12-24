@@ -47,7 +47,7 @@ export default function reducer(state, { type, payload }) {
         ...state,
         pins: [...prevPins, newPin]
       };
-    case "SETPIN":
+    case "SET_PIN":
       return {
         ...state,
         currentPin: payload,
