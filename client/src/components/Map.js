@@ -151,7 +151,7 @@ const Map = ({ classes }) => {
             onClose={() => setPopup(null)}
           >
             <img
-              className={classes.popup}
+              className={classes.popupImage}
               src={popup.image}
               alt={popup.title}
             />
