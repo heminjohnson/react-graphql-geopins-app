@@ -12,7 +12,7 @@ const Comments = ({ comments, classes }) => (
     {comments.map((comment, i) => (
       <ListItem key={i} alignItems="flex-start">
         <ListItemAvatar>
-          <Avatar src={comment.author.picture} alt={comments.author.name} />
+          <Avatar src={comment.author.picture} alt={comment.author.name} />
         </ListItemAvatar>
         <ListItemText
           primary={comment.text}
