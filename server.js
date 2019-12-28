@@ -7,6 +7,7 @@ const resolvers = require("./resolvers");
 const { findOrCreateUser } = require("./controllers/userController");
 
 mongoose
+  .set("useFindAndModify", false)
   .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
