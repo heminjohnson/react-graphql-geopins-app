@@ -5,7 +5,7 @@ import differenceInMinutes from "date-fns/difference_in_minutes";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import DeleteIcon from "@material-ui/icons/DeleteTwoTone";
-import { unstable_useMediaQuery as useMediaQuery } from '@material-ui/core/useMediaQuery'
+import { unstable_useMediaQuery as useMediaQuery } from "@material-ui/core/useMediaQuery";
 import { Subscription } from "react-apollo";
 import {
   PIN_ADDED_SUBSCRIPTION,
@@ -29,7 +29,7 @@ const INITIAL_VIEWPORT = {
 const Map = ({ classes }) => {
   const client = useClient();
   const { state, dispatch } = useContext(Context);
-  const mobileSize = useMediaQuery('(max-width: 650px)')
+  const mobileSize = useMediaQuery("(max-width: 650px)");
 
   useEffect(() => {
     getPins();
@@ -43,6 +43,15 @@ const Map = ({ classes }) => {
   }, []);
 
   const [popup, setPopup] = useState(null);
+
+  // remove popup if pin itself is deleted by the author of the pin
+  useEffect(() => {
+    const pinExists =
+      popup && state.pins.findIndex(pin => pin._id === popup._id) > -1;
+    if (!pinExists) {
+      setPopup(null);
+    }
+  }, [state.pins.length]);
 
   const getUserPosition = () => {
     if ("geolocation" in navigator) {
