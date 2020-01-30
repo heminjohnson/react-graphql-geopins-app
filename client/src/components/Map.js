@@ -5,6 +5,7 @@ import differenceInMinutes from "date-fns/difference_in_minutes";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import DeleteIcon from "@material-ui/icons/DeleteTwoTone";
+import { unstable_useMediaQuery as useMediaQuery } from '@material-ui/core/useMediaQuery'
 import { Subscription } from "react-apollo";
 import {
   PIN_ADDED_SUBSCRIPTION,
@@ -28,6 +29,7 @@ const INITIAL_VIEWPORT = {
 const Map = ({ classes }) => {
   const client = useClient();
   const { state, dispatch } = useContext(Context);
+  const mobileSize = useMediaQuery('(max-width: 650px)')
 
   useEffect(() => {
     getPins();
@@ -89,13 +91,14 @@ const Map = ({ classes }) => {
   };
 
   return (
-    <div className={classes.root}>
+    <div className={mobileSize ? classes.rootMobile : classes.root}>
       <ReactMapGL
         width="100vw"
         height="calc(100vh - 64px)"
         mapStyle="mapbox://styles/mapbox/streets-v9"
         onViewportChange={newViewport => setViewport(newViewport)}
         mapboxApiAccessToken={process.env.REACT_APP_MAP_API_ACCESS_TOKEN}
+        scrollZoom={!mobileSize}
         onClick={handleMapClick}
         {...viewport}
       >
