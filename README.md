@@ -53,3 +53,8 @@ Keys and other sensitive details are not stored on Github. Before starting the a
 `REACT_APP_MAP_API_ACCESS_TOKEN=[YOUR_GOOGLE_MAPS_API_KEY]`<br/>
 `REACT_APP_CLOUDINARY_UPLOAD_PRESET=[YOUR_CLOUDINARY_UPLOAD_PRESET]`<br/>
 `REACT_APP_CLOUDINARY_CLOUD_NAME=[YOUR_CLOUDINARY_CLOUD_NAME]`
+
+### View [working demo](https://react-graphql-geopins-app.now.sh)
+
+> Note: This app is hosted on Heroku free tier.  If currently in 'sleep mode' the initial request time may take longer. 
+> Subsequent requests will perform normally.
