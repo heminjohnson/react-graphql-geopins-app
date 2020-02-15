@@ -58,3 +58,7 @@ Keys and other sensitive details are not stored on Github. Before starting the a
 
 > Note: This app is hosted on Heroku free tier.  If currently in 'sleep mode' the initial request time may take longer. 
 > Subsequent requests will perform normally.
+
+<br>
+
+![geo-pins](./images/portfolio.png)
